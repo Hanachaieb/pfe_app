@@ -1,16 +1,13 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:my_app1/pages/acceuil.dart';
-import 'package:my_app1/pages/apropos.dart';
-import 'package:my_app1/pages/comptet.dart';
-import 'package:my_app1/pages/contacter.dart';
-import 'package:my_app1/pages/login.dart'; // Assuming login.dart defines LoginPage
-import 'package:my_app1/pages/logint.dart';
-import 'package:my_app1/pages/resultat.dart';
-import 'package:my_app1/pages/signup.dart';
-import 'package:my_app1/pages/signupt.dart';
-import 'package:my_app1/pages/welcome.dart';
+import 'package:get/get_navigation/src/root/get_material_app.dart';
+import 'package:get_storage/get_storage.dart';
+import 'package:my_app1/pages/ressources/router/router.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
+  await GetStorage.init();
   runApp(const MyApp());
 }
 
@@ -19,20 +16,10 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      initialRoute: "/welcome",
-      routes: {
-        "/welcome": (context) => const Welcome(),
-        "/login": (context) => const Login(),
-        "/signup": (context) => const Signup(),
-        "/acceuil": (context) => Acceuil(),
-        "/resultat": (context) => Resultat(),
-        "/contacter": (context) => const Contacter(),
-        "/logint": (context) => const Logint(),
-        "/signupt": (context) => const Signupt(),
-        "/comptet": (context) => const Comptet(),
-        "/apropos": (context) => const Apropos(),
-      },
+    return GetMaterialApp(
+      debugShowCheckedModeBanner: false,
+      onGenerateRoute: AppRouting.generateRoute,
+      initialRoute: AppRouting.splashScreen,
     );
   }
 }

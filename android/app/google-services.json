@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "798746461103",
+    "project_id": "pfehanaachwek",
+    "storage_bucket": "pfehanaachwek.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:798746461103:android:d26a04747272facaa8255a",
+        "android_client_info": {
+          "package_name": "com.example.my_app1"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAL1cvMTkPJeVQQK8a8tEKAjKUyjNPOJQQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
