@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:fluttertoast/fluttertoast.dart';
+import 'package:get/get.dart';
 import 'package:my_app1/pages/ressources/router/router.dart';
 import 'package:my_app1/services/AuthServices.dart';
 
@@ -358,14 +358,18 @@ class _SignuptState extends State<SignUp> {
                               setState(() {
                                 loading = false;
                               });
-                              Fluttertoast.showToast(
-                                  msg: "un erreur s'est produite",
-                                  toastLength: Toast.LENGTH_SHORT,
-                                  gravity: ToastGravity.BOTTOM,
-                                  timeInSecForIosWeb: 1,
-                                  backgroundColor: Colors.grey,
-                                  textColor: Colors.white,
-                                  fontSize: 16.0);
+                              Get.snackbar("", "",
+                                  titleText: Text(
+                                    "Connect Services",
+                                    style: TextStyle(color: Colors.white),
+                                  ),
+                                  messageText: Text(
+                                    "Un erreur s'est produite",
+                                    style: TextStyle(color: Colors.white),
+                                  ),
+                                  icon: Icon(Icons.settings, color: Colors.white),
+                                  snackPosition: SnackPosition.BOTTOM,
+                                  backgroundColor: Colors.red);
                             }
                           }
                         },

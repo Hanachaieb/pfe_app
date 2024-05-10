@@ -1,6 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:fluttertoast/fluttertoast.dart';
+import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:intl/intl.dart';
 import 'package:my_app1/pages/ressources/dimensions/constants.dart';
@@ -112,14 +112,18 @@ class _WorkerRefusedRequestsState extends State<WorkerRefusedRequests> {
                                                                     .collection("requests")
                                                                     .doc(users[index].id)
                                                                     .update({"status": 1});
-                                                                Fluttertoast.showToast(
-                                                                    msg: "Demande Accepté",
-                                                                    toastLength: Toast.LENGTH_SHORT,
-                                                                    gravity: ToastGravity.BOTTOM,
-                                                                    timeInSecForIosWeb: 1,
-                                                                    backgroundColor: Colors.green,
-                                                                    textColor: Colors.white,
-                                                                    fontSize: 16.0);
+                                                                Get.snackbar("", "",
+                                                                    titleText: Text(
+                                                                      "Connect Services",
+                                                                      style: TextStyle(color: Colors.white),
+                                                                    ),
+                                                                    messageText: Text(
+                                                                      "Demande Accepté",
+                                                                      style: TextStyle(color: Colors.white),
+                                                                    ),
+                                                                    icon: Icon(Icons.settings, color: Colors.white),
+                                                                    snackPosition: SnackPosition.BOTTOM,
+                                                                    backgroundColor: Colors.green);
                                                               },
                                                               child: Text(
                                                                 "Accepter",

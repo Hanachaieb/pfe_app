@@ -5,7 +5,6 @@ import 'dart:io';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get_core/get_core.dart';
 import 'package:get/get_navigation/get_navigation.dart';
 import 'package:my_app1/pages/ressources/router/router.dart';
@@ -178,14 +177,18 @@ class _LoginState extends State<SignIn> {
                                         setState(() {
                                           isLoading = false;
                                         });
-                                        Fluttertoast.showToast(
-                                            msg: "Verifier vos données",
-                                            toastLength: Toast.LENGTH_SHORT,
-                                            gravity: ToastGravity.BOTTOM,
-                                            timeInSecForIosWeb: 1,
-                                            backgroundColor: Colors.red,
-                                            textColor: Colors.white,
-                                            fontSize: 16.0);
+                                        Get.snackbar("", "",
+                                            titleText: Text(
+                                              "Connect Services",
+                                              style: TextStyle(color: Colors.white),
+                                            ),
+                                            messageText: Text(
+                                              "Verifier vos données",
+                                              style: TextStyle(color: Colors.white),
+                                            ),
+                                            icon: Icon(Icons.settings, color: Colors.white),
+                                            snackPosition: SnackPosition.BOTTOM,
+                                            backgroundColor: Colors.red);
                                       }
                                     });
                                   }

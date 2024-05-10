@@ -1,6 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:fluttertoast/fluttertoast.dart';
+import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:intl/intl.dart';
 
@@ -112,14 +112,12 @@ class _WorkerProcessingRequestsState extends State<WorkerProcessingRequests> {
                                                                     .collection("requests")
                                                                     .doc(users[index].id)
                                                                     .update({"status": 2});
-                                                                Fluttertoast.showToast(
-                                                                    msg: "Demande Terminé",
-                                                                    toastLength: Toast.LENGTH_SHORT,
-                                                                    gravity: ToastGravity.BOTTOM,
-                                                                    timeInSecForIosWeb: 1,
-                                                                    backgroundColor: Colors.green,
-                                                                    textColor: Colors.white,
-                                                                    fontSize: 16.0);
+                                                                Get.snackbar(
+                                                                  "Demande Terminé",
+                                                                  "",
+                                                                  icon: Icon(Icons.person, color: Colors.white),
+                                                                  snackPosition: SnackPosition.BOTTOM,
+                                                                );
                                                               },
                                                               child: Text(
                                                                 "Terminer",

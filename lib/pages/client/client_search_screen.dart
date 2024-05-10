@@ -1,7 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
-import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_navigation/get_navigation.dart';
 import 'package:get_storage/get_storage.dart';
@@ -282,15 +281,12 @@ class _ClientSearchScreenState extends State<ClientSearchScreen> {
                                                   "status": 0,
                                                 });
                                                 instance.doc(doc.id).update({"id": doc.id});
-
-                                                Fluttertoast.showToast(
-                                                    msg: "Demande ajouté avec success",
-                                                    toastLength: Toast.LENGTH_SHORT,
-                                                    gravity: ToastGravity.BOTTOM,
-                                                    timeInSecForIosWeb: 1,
-                                                    backgroundColor: Colors.green,
-                                                    textColor: Colors.white,
-                                                    fontSize: 16.0);
+                                                Get.snackbar(
+                                                  "Demande ajouté avec success",
+                                                  "",
+                                                  icon: Icon(Icons.person, color: Colors.white),
+                                                  snackPosition: SnackPosition.BOTTOM,
+                                                );
                                               },
                                               child: Text(
                                                 "Ajouter une demande",
