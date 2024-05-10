@@ -281,12 +281,18 @@ class _ClientSearchScreenState extends State<ClientSearchScreen> {
                                                   "status": 0,
                                                 });
                                                 instance.doc(doc.id).update({"id": doc.id});
-                                                Get.snackbar(
-                                                  "Demande ajouté avec success",
-                                                  "",
-                                                  icon: Icon(Icons.person, color: Colors.white),
-                                                  snackPosition: SnackPosition.BOTTOM,
-                                                );
+                                                Get.snackbar("", "",
+                                                    titleText: Text(
+                                                      "Connect Services",
+                                                      style: TextStyle(color: Colors.white),
+                                                    ),
+                                                    messageText: Text(
+                                                      "Demande Ajouté",
+                                                      style: TextStyle(color: Colors.white),
+                                                    ),
+                                                    icon: Icon(Icons.settings, color: Colors.white),
+                                                    snackPosition: SnackPosition.BOTTOM,
+                                                    backgroundColor: Colors.green);
                                               },
                                               child: Text(
                                                 "Ajouter une demande",
